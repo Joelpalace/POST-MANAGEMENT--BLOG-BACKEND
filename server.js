@@ -18,9 +18,11 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
 app.use('/api/comments', commentRoutes);
-app.use('/api/tags', tagRoutes);
+app.use('/api/tags', tagRoutes); 
 
-const PORT = process.env.PORT || 5650;
+
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
