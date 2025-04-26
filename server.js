@@ -1,28 +1,29 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
-const cors = require('cors');
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./config/db.js";
 
-const authRoutes = require('./routes/authRoutes');
-const postRoutes = require('./routes/postRoutes');
-const commentRoutes = require('./routes/commentRoutes');
-const tagRoutes = require('./routes/tagRoutes');
+import authRoutes from "./routes/authRoutes.js";
+import postRoutes from "./routes/postRoutes.js";
+import commentRoutes from "./routes/commentRoutes.js";
+import tagRoutes from "./routes/tagRoutes.js";
 
 dotenv.config();
-//connectDB();
+connectDB();
 
 const app = express();
-app.use(cors());
-app.use(express.json());
+app.use(express.json()); // Parse JSON requests
 
-//app.use('/api/auth', authRoutes);
-//app.use('/api/posts', postRoutes);
-//app.use('/api/comments', commentRoutes);
-//app.use('/api/tags', tagRoutes); 
+// API Routes
+app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
+app.use("/api/comments", commentRoutes);
+app.use("/api/tags", tagRoutes);
 
-
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
-  console.log(`Server is supplying on port ${PORT}`);
+// Default error handling middleware
+app.use((err, req, res, next) => {
+  console.error("Unhandled Error:", err.message);
+  res.status(500).json({ msg: "Internal Server Error" });
 });
 
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
