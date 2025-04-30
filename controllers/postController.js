@@ -4,7 +4,10 @@ const paginate = require('../utils/paginate');
 exports.createPost = async (req, res, next) => {
   try {
     const post = await Post.create({ ...req.body, author: req.user._id });
-    res.status(201).json(post);
+    res.status(201).json({
+      post,
+      message: 'Post created successfully',
+    });
   } catch (err) {
     next(err);
   }
@@ -50,7 +53,10 @@ exports.updatePost = async (req, res, next) => {
       throw new Error('Not authorized to update this post');
     }
     const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.json(updatedPost);
+    res.json({
+      updatedPost,
+      message: 'Post updated successfully',
+    });
   } catch (err) {
     next(err);
   }

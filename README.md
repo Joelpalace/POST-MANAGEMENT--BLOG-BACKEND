@@ -27,7 +27,6 @@ This is a Node.js + Express backend API for a simple blog platform that handles:
 1. Clone the repository
 ```bash
 git clone https://github.com/your-username/blog-backend.git
-cd blog-backend
 
 ## Testing API ROUTES
 Auth Route

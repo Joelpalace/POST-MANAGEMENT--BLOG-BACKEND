@@ -16,6 +16,7 @@ exports.register = async (req, res, next) => {
     const user = await User.create({ username, email, password });
     res.status(201).json({
       token: generateToken(user),
+      message: 'User registered successfully',
       user: { id: user._id, username: user.username, role: user.role }
     });
   } catch (err) {
@@ -33,6 +34,7 @@ exports.login = async (req, res, next) => {
     }
     res.json({
       token: generateToken(user),
+      message: 'User logged in successfully',
       user: { id: user._id, username: user.username, role: user.role }
     });
   } catch (err) {
