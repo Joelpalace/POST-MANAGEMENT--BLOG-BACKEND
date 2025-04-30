@@ -32,32 +32,32 @@ cd blog-backend
 ## Testing API ROUTES
 Auth Route
 
-| Method | Endpoint        | Description             |
-| ------ | ---------------- | ----------------------- |
+| Method | Endpoint           | Description              |
+| ------ | ----------------   |  ----------------------- |
 | POST   | /api/auth/register | Register a new user      |
 | POST   | /api/auth/login    | Login a user             |
 
 Post Route
 
-| Method | Endpoint        | Description             |
-| ------ | ---------------- | ----------------------- |
+| Method | Endpoint          | Description                   |
+| ------ | ----------------  | -----------------------       |
 | POST   | /api/posts        | Create a new post (protected) |
-| GET    | /api/posts        | Get all posts            |
-| GET    | /api/posts/:id    | Get a specific post      |
-| PUT    | /api/posts/:id    | Update a post (protected)|
-| DELETE | /api/posts/:id    | Delete a post (protected)|
+| GET    | /api/posts        | Get all posts                 |
+| GET    | /api/posts/:id    | Get a specific post           |
+| PUT    | /api/posts/:id    | Update a post (protected)     |
+| DELETE | /api/posts/:id    | Delete a post (protected)     |
 
 
 Comments Route
 
-| Method | Endpoint        | Description             |
-| ------ | ---------------- | ----------------------- |
-| POST   | /api/comments     | Add a comment (protected)|
-| GET    | /api/comments/:postId | Get comments for a post |
+| Method | Endpoint              | Description              |
+| ------ | ----------------      | -----------------------  |
+| POST   | /api/comments         | Add a comment (protected)|
+| GET    | /api/comments/:postId | Get comments for a post  |
 
 Tag Route
 
-| Method | Endpoint        | Description             |
-| ------ | ---------------- | ----------------------- |
+| Method | Endpoint          | Description                   |
+| ------ | ----------------  | -----------------------       |
 | POST   | /api/tags         | Create a new tag (admin only) |
-| GET    | /api/tags         | Get all tags             |
+| GET    | /api/tags         | Get all tags                  |
